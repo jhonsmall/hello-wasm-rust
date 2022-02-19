@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="application/wasm" charset="utf-8" />
+    <title>My Wasm Project</title>
+  </head>
+
+  <body>
+    <script type="module">
+      // Importing WASM as a JS module requires us to call an init function provided by the default export.
+      // This is planned to be changed in the future.
+      import { default as wasm, greet, suma } from "./pkg/hello_wasm.js";
+
+      wasm().then((module) => {
+        // The boiler plate project comes with a `greet` function that calls:
+        // `alert("Hello, hello-wasm!");`
+        greet();
+        console.log(suma(10, 20));
+      });
+    </script>
+  </body>
+</html>
